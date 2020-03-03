@@ -1,9 +1,16 @@
-def bitsToSymbols(bits):
+def encryption(bits):
 
-def resElementMapping():
+def mapbitQPSK():
+
+def sp():
+
+def resourceElementMapping():
 
 def inverseFFT():
 
 def ps():
 
 def cyclicprefix():
+
+def upconversion():
+
