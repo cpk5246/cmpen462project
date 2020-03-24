@@ -1,7 +1,7 @@
 data = [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0];
 x = zeros(1, 19);
 pnMSRG = zeros(1, 524287);
-%MSRG for encryptions
+%MSRG for PNSeq
 pnMSRG(1) = data(19);
 for i=1:524286
     x(1) = data(19);
@@ -27,11 +27,12 @@ for i=1:524286
     data = x;
 end
 
+%Encrypts the data using the PNSeq
 encryptedData = zeros(1, 20480000);
 pnLength = length(pnMSRG);
 loops = idivide(int64(length(TestData)),int64(length(pnMSRG)));
 for i=0:loops-1
-   sIndex = i*524287+1; 
+   sIndex = i*pnLength+1; 
    eIndex = sIndex+pnLength-1;
    encryptedData(sIndex:eIndex) = xor(pnMSRG, TestData(sIndex:eIndex)); 
 end
